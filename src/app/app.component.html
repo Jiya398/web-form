@@ -1,0 +1,50 @@
+<div class="form">
+  <h2 id="registration">Form Registration</h2>
+
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+      <div ngModelGroup="registrations" #registrationForm="ngModelGroup">
+        <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter your first name"
+                  name="firstName" ngModel required #firstName="ngModel"> <br><br>
+        <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter your last name"
+                  name="lastName" ngModel required #lastName="ngModel"> <br><br>
+        <label for="userName">Username</label>
+          <input type="text" id="userName" placeholder="Enter your username"
+                  name="userName" ngModel required #userName="ngModel"> <br><br>
+        <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email"
+                  name="email" ngModel required email> <br><br>
+      <div>
+      <small *ngIf="registrationForm.invalid && registrationForm.touched">
+          Please answer .</small>
+      </div></div>
+
+      <label for="education">Qualifications attained</label>
+      <select id="education" name="education" [ngModel]="defaultEducation">
+        <option value="leftsecondary">Left prior to completing secondary school </option>
+        <option value="compsecondary">Completed Secondary School </option>
+        <option value="tertiary">Some Tertiary Education </option>
+        <option value="diploma">Advanced Diploma or Diploma </option>
+        <option value="undergrad">Bachelors (Undergraduate) Degree </option>
+        <option value="postgraduate">Postgraduate Diploma or Certificate </option>
+        <option value="mater"> Master's Degree </option>
+        <option value="doctoral"> Doctoral Degree </option>
+      </select> <br><br>
+
+      <label> Career <i> Career </i></label>
+      <div class="form-inline">
+        <span>
+          <label><input type="checkbox" value="engineering" name="career" ngModel> Engineering Courses</label> <br>
+          <label><input type="checkbox" value="medical" name="career" ngModel> Medical Courses</label> <br>
+          <label><input type="checkbox" value="technology" name="career" ngModel> Technology Courses</label> <br>
+        </span>
+      </div>
+
+      <input type="submit" value="Submit" id="btn">
+
+      <span ="setDefaultValues()"> default</span>
+
+
+    </form>
+</div>
